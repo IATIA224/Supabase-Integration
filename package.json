@@ -1,0 +1,20 @@
+{
+  "name": "supabase-fullstack-app",
+  "version": "1.0.0",
+  "description": "Full-stack application with User & Admin dashboards and FastAPI backend",
+  "scripts": {
+    "dev": "concurrently -n \"backend,user,admin\" -c \"yellow,cyan,magenta\" \"npm run dev:backend\" \"npm run dev:user\" \"npm run dev:admin\"",
+    "dev:backend": "cd backend && python -m uvicorn main:app --reload --port 8000",
+    "dev:user": "cd frontend-user && npm run dev",
+    "dev:admin": "cd frontend-admin && npm run dev",
+    "install:all": "npm install && cd frontend-user && npm install && cd ../frontend-admin && npm install && cd ../backend && pip install -r requirements.txt",
+    "build:user": "cd frontend-user && npm run build",
+    "build:admin": "cd frontend-admin && npm run build"
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  },
+  "keywords": ["supabase", "react", "fastapi", "dashboard"],
+  "author": "",
+  "license": "MIT"
+}
